@@ -1,0 +1,10 @@
+name: GitHub Actions Demo
+on:
+    schedule:
+        - cron: "5 * * * *"
+jobs:
+    Scan-Git-Secrets:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+            - run: docker run -it -v "$PWD:/pwd" trufflesecurity/trufflehog:latest --fail --json --no-update --only-verified github --repo https://github.com/zinader/Planet_backend

@@ -3,8 +3,10 @@ on:
     schedule:
         - cron: "1 * * * *"
 jobs:
-    Scan-Git-Secrets:
+    build:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-            - run: docker run -it -v "$PWD:/pwd" trufflesecurity/trufflehog:latest --fail --json --no-update --only-verified github --repo https://github.com/zinader/Planet_backend
+            - uses: actions/checkout@v1
+            - name: Running
+              run: |
+                  echo "Running!"

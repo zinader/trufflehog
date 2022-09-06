@@ -1,15 +1,15 @@
-name: GitHub Actions Demo
+name: Master
 on:
-    push:
-        branches:
-            - master
-    schedule:
-        - cron: "* * * * *"
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '* * * * *'
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v1
-            - name: Running
-              run: |
-                  echo "Running!"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Running
+      run: |
+        echo "Running!"
